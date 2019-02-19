@@ -8,10 +8,17 @@
     
     <f:view>
         <h:head>
-            <title>Facelet Title</title>
+            <title>Inicio</title>
+            <h:outputStylesheet name="css/estilos.css"/>
         </h:head>
         <h:body>
-            Hello from Facelets
+            <h:form>
+                <p:inputText id="nombre" value="#{agregarUsuario.nombre}" placeholder="Nombre"/><br/>
+                <p:inputText id="correo" value="#{agregarUsuario.correo}" placeholder="Correo"/><br/>
+                <p:password id="contrasenia" value="#{agregarUsuario.contrasenia}" placeholder="Contraseña"/><br/>
+                <p:calendar id="fechanacimiento" value="#{agregarUsuario.fechanacimiento}" placeholder="Fecha de nacimiento"/><br/>
+                <p:commandButton action ="#{agregarUsuario.agregarUsuario()}" value ="Registrarme" ajax="false"/>
+            </h:form>
         </h:body>
     </f:view>
 </html>
