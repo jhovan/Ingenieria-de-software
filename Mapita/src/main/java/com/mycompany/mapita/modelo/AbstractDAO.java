@@ -41,9 +41,41 @@ public class AbstractDAO <T>{
         }
     }
     
-    protected void update(T obj){}
+    //lo hicé yo
+    protected void update(T obj){
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = null;  
+        try{
+            tx = session.beginTransaction();
+            session.update(obj);
+            tx.commit();
+        }catch(HibernateException e){
+            if(tx !=null){
+                tx.rollback();
+            }
+            e.printStackTrace();
+        }finally{
+            session.close();
+        }
+    }
     
-    protected void delete(T obj){}
+    //lo hicé yo
+    protected void delete(T obj){
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = null;  
+        try{
+            tx = session.beginTransaction();
+            session.delete(obj);
+            tx.commit();
+        }catch(HibernateException e){
+            if(tx !=null){
+                tx.rollback();
+            }
+            e.printStackTrace();
+        }finally{
+            session.close();
+        }
+    }
     
     protected T find(Class clazz, int id){
         T obj = null;
@@ -85,3 +117,6 @@ public class AbstractDAO <T>{
     }
     
 }
+
+//implementar para UsuarioDAO y MarcadorDAO
+//public class UsuarioDAO extends AbstractDAO<usuario>{}
