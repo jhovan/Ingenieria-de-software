@@ -37,11 +37,11 @@
                         Registrate
                     </h2>
                     <h:form>
-                        <p:inputText id="nombre" value="#{agregaUsuario.nombre}" placeholder="Nombre"/> <br/>
-                        <p:inputText id="correo" value="#{agregaUsuario.correo}" placeholder="Correo"/> <br/>
-                        <p:password id="constrasenia" value="#{agregaUsuario.contrasenia}" placeholder="Contrasenia"/> <br/>
-                        <p:calendar id="fechanacimiento" value="#{agregaUsuario.fechanacimiento}" placeholder="Fecha de nacimiento"/> <br/>
-                        <p:commandButton action="#{agregaUsuario.agregaUsuario()}" value="Registrame" ajax="false" />
+                        <p:inputText id="nombre" value="#{agregarUsuario.nombre}" placeholder="Nombre"/><br/>
+	                <p:inputText id="correo" value="#{agregarUsuario.correo}" placeholder="Correo"/><br/>
+	                <p:password id="contrasenia" value="#{agregarUsuario.contrasenia}" placeholder="Contraseña"/><br/>
+	                <p:calendar id="fechanacimiento" value="#{agregarUsuario.fechanacimiento}" placeholder="Fecha de nacimiento"/><br/>
+	                <p:commandButton action ="#{agregarUsuario.agregarUsuario()}" value ="Registrarme" ajax="false"/>
                     </h:form>
                 </aside>
             </main>
