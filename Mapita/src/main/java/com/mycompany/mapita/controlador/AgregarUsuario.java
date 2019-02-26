@@ -17,6 +17,8 @@ import javax.faces.bean.ManagedBean;
 
 //el managedBean es importante
 @ManagedBean
+//@SessionScoped
+//@RequesScoped
 public class AgregarUsuario {
     private String nombre;
     private String correo;
