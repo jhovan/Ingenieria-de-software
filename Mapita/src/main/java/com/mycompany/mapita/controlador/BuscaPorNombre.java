@@ -43,7 +43,7 @@ public class BuscaPorNombre {
             return "";
         UsuarioDAO ubd = new UsuarioDAO();
         resultado =  ubd.buscaPorNombre(nombre);
-        return "resultado?faces-redirect=true";
+        return "resultado_buscar_usuario?faces-redirect=true";
     }
 }
 
