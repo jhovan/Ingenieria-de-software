@@ -17,6 +17,11 @@
                     <p:inputText type="search " value="#{buscaPorNombre.nombre}"/>
                     <p:commandButton action="#{buscaPorNombre.buscaPorNombre()}" value="BuscaPorNombre"/>
                 </h:form>
+                <h:form id="sesion">
+                    <p:inputText id="correo" value="#{buscaPorCorreoContrasenia.correo}" placeholder="Correo"/>
+                    <p:password id="contrasenia" value="#{buscaPorCorreoContrasenia.contrasenia}" placeholder="Contraseña"/>
+                    <p:commandButton action ="#{buscaPorCorreoContrasenia.buscaPorCorreoContrasenia()}" value ="Iniciar Sesión" ajax="false"/>
+                </h:form>
             </header>
             <main>
                 <section>
@@ -47,7 +52,7 @@
             </main>
             <footer>
                 <h3>
-                    Lorem ipsum dolor sit amet.
+                    © 2019, XiuTech, Todos los derechos reservados
                 </h3>
             </footer>
 
