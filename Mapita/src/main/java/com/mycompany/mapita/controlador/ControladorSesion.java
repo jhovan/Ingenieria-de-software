@@ -36,8 +36,20 @@ public class ControladorSesion {
         this.contrasesnia = contrasesnia;
     }
     
+    /*
     public String login(){
         Usuario user = null;
+        FacesContext context = FacesContext.getCurrentInstance();
+        if(user !=null){
+            context.getExternalContext().getSessionMap().put("user", user);
+            return "perfil?faces-redirect=true";
+        }
+        return "";
+    }
+    */
+    
+    public String login(Usuario user){
+        //Usuario user = null;
         FacesContext context = FacesContext.getCurrentInstance();
         if(user !=null){
             context.getExternalContext().getSessionMap().put("user", user);
