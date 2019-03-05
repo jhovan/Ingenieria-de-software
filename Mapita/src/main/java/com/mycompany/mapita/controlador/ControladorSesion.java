@@ -6,6 +6,7 @@
 package com.mycompany.mapita.controlador;
 
 import com.mycompany.mapita.modelo.Usuario;
+import com.mycompany.mapita.modelo.UsuarioDAO;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -39,16 +40,21 @@ public class ControladorSesion {
     
     public String login(){
         Usuario user = null;
+        BuscaPorCorreoContrasenia busqueda = new BuscaPorCorreoContrasenia();
+        busqueda.setContrasenia(contrasenia);
+        busqueda.setCorreo(correo);
+        busqueda.buscaPorCorreoContrasenia();
+        user = busqueda.getResultado();
         FacesContext context = FacesContext.getCurrentInstance();
         if(user !=null){
             context.getExternalContext().getSessionMap().put("user", user);
-            return "perfil?faces-redirect=true";
+            return "login?faces-redirect=true";
         }
-        return "";
+        return "login?faces-redirect=true";
     }
     
     public String logout(){
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return "index?faces-redirect=true";
+        return "login?faces-redirect=true";
     }
 }

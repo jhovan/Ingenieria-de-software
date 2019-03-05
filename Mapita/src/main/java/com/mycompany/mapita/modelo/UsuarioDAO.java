@@ -94,10 +94,10 @@ public class UsuarioDAO extends AbstractDAO<Usuario> {
         return usuarios;
     }
   
-    public List<Usuario> buscaPorCorreoContrasenia(String correo, String contrasenia){
+    public Usuario buscaPorCorreoContrasenia(String correo, String contrasenia){
 //        if(nombre.equals(""))
 //            return null;
-        List<Usuario> usuarios =null;
+        Usuario usuario =null;
         Session session = this.sessionFactory.openSession();
         Transaction tx = null;
         try{
@@ -106,7 +106,7 @@ public class UsuarioDAO extends AbstractDAO<Usuario> {
             Query query = session.createQuery(hql);
             query.setParameter("correo", correo);
             query.setParameter("contrasenia", contrasenia);
-            usuarios = (List<Usuario>)query.list();
+            usuario = (Usuario)query.list().get(0);
             tx.commit();
         }catch(HibernateException e){
             if(tx!=null){
@@ -116,6 +116,6 @@ public class UsuarioDAO extends AbstractDAO<Usuario> {
         }finally{
             session.close();
         }
-        return usuarios;
+        return usuario;
     }    
 }

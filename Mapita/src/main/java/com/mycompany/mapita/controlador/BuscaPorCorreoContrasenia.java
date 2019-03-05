@@ -23,9 +23,9 @@ public class BuscaPorCorreoContrasenia {
     private String correo;
     private String contrasenia;
     
-    private List<Usuario> resultado;
+    private Usuario resultado;
 
-    public List<Usuario> getResultado() {
+    public Usuario getResultado() {
         return resultado;
     }
     
